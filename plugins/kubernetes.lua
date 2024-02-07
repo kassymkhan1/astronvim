@@ -1,0 +1,3 @@
+return {
+  'andrewstuart/vim-kubernetes',
+}
