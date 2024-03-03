@@ -18,7 +18,8 @@ return {
   },
 
   -- Set colorscheme to use
-  colorscheme = "monokai-pro",
+  -- colorscheme="darkplus",
+  colorscheme = "github_dark_dimmed",
 
   -- Diagnostics configuration (for vim.diagnostics.config({...})) when diagnostics are on
   diagnostics = {
@@ -75,10 +76,11 @@ return {
         tpl = "python",
         nomad = "python",
         hcl   = "python",
+        hurl = "hurl"
       },
-      -- filename = {
-      --   ["Foofile"] = "fooscript",
-      -- },
+      filename = {
+        ["hosts"] = "python",
+      },
       -- pattern = {
       --   ["~/**/**/.tpl"] = "python",
       -- },

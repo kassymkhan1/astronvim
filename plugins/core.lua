@@ -20,19 +20,29 @@ return {
       return opts
     end,
   },
-  -- You can disable default plugins as follows:
+  -- Disable default plugins as follows:
   -- { "max397574/better-escape.nvim", enabled = false },
-  --
-  -- You can also easily customize additional setup of plugins that is outside of the plugin's setup call
-  -- {
-  --   "L3MON4D3/LuaSnip",
-  --   config = function(plugin, opts)
-  --     require "plugins.configs.luasnip"(plugin, opts) -- include the default astronvim config that calls the setup call
-  --     -- add more custom luasnip configuration such as filetype extend or custom snippets
-  --     local luasnip = require "luasnip"
-  --     luasnip.filetype_extend("javascript", { "javascriptreact" })
-  --   end,
-  -- },
+  {
+    "max397574/better-escape.nvim",
+    event = "InsertCharPre",
+    opts = {
+      timeout = 300,
+      mapping = { "fd" },
+    },
+  },
+  -- Customize additional setup of plugins outside of the plugin's setup call
+  {
+    "L3MON4D3/LuaSnip",
+    config = function(plugin, opts)
+      -- include the default astronvim config that calls the setup call
+      require "plugins.configs.luasnip"(plugin, opts)
+      -- add more custom luasnip configuration such as filetype extend or custom snippets
+      -- load VSCode snippets from paths
+      require("luasnip.loaders.from_vscode").lazy_load { paths = { "./lua/user/snippets" } }
+      local luasnip = require "luasnip"
+      luasnip.filetype_extend("javascript", { "javascriptreact" })
+    end,
+  },
   -- {
   --   "windwp/nvim-autopairs",
   --   config = function(plugin, opts)
@@ -74,4 +84,32 @@ return {
   --     }, { mode = "n", prefix = "<leader>" })
   --   end,
   -- },
+  -- Configure notify popups
+  {
+    "rcarriga/nvim-notify",
+    opts = {
+      top_down = false,
+      timeout = 1000,
+      -- log level - 3 hide file write messages - default 5
+      level = 3,
+      -- background_color = "#000000",
+    },
+  },
+
+  {
+    "nvim-neo-tree/neo-tree.nvim",
+    opts = {
+      filesystem = {
+        filtered_items = {
+          -- when true, they will just be displayed differently than normal items
+          visible = true,
+          -- remains hidden even if visible is toggled to true, this overrides always_show
+          never_show = {
+            ".DS_Store",
+            "thumbs.db",
+          },
+        },
+      },
+    },
+  },
 }
