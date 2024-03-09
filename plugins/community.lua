@@ -100,6 +100,7 @@ return {
   -- Treesitter: markdown & markdown_inline, Lsp: marksman, Lint/format: prettierd
   { import = "astrocommunity.pack.markdown" },
   -- Treesitter: markdown & markdown_inline, Lsp: marksman, Lint/format: prettierd
+  { import = "astrocommunity.pack.angular" },
   { import = "astrocommunity.pack.yaml" },
   -- ----------------------------------------------
 
@@ -107,7 +108,7 @@ return {
   -- Project
 
   -- switch between projects
-  { import = "astrocommunity.project.project-nvim" },
+  -- { import = "astrocommunity.project.project-nvim" },
 
   -- Search and replace across projects
   { import = "astrocommunity.project.nvim-spectre" },

@@ -75,8 +75,8 @@ return {
       extension = {
         tpl = "python",
         nomad = "python",
-        hcl   = "python",
-        hurl = "hurl"
+        hcl = "python",
+        hurl = "hurl",
       },
       filename = {
         ["hosts"] = "python",
